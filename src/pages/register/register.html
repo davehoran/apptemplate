@@ -1,0 +1,32 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Skeleton</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h2>Please Register</h2>
+  <div>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Username</ion-label>
+        <ion-input type="text" value=""></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" value=""></ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div padding>
+    <button ion-button color="primary" block (click)="register()">Register</button>
+  </div>
+  <div padding>
+    <p style="text-align: center;">Already have an account? <a href="#" (click)="login()">Click here.</a>
+  </div>
+</ion-content>
