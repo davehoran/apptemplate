@@ -3,8 +3,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User } from '../../models/user';
 import { AngularFireAuth } from 'angularfire2/auth';
 
-//import { RegisterPage } from '../register/register';
-//import { HomePage } from '../home/home';
+import { RegisterPage } from '../register/register';
+import { HomePage } from '../home/home';
+
 
 @IonicPage()
 @Component({
@@ -32,7 +33,8 @@ export class LoginPage {
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       console.log("login successful!");
       console.log(result);
-      this.navCtrl.setRoot("HomePage");
+      this.loginMessage = "";
+      this.navCtrl.setRoot(HomePage);
     }
     catch(e) {
       console.log(e);
@@ -42,7 +44,7 @@ export class LoginPage {
 
   register() {
     console.log('redirecting to Register page.');
-    this.navCtrl.setRoot("RegisterPage");
+    this.navCtrl.setRoot(RegisterPage);
   }
 
 
