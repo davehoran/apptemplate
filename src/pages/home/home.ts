@@ -17,9 +17,10 @@ export class HomePage {
 
   }
 
-  ionViewWillEnter() {
+  ionViewWillLoad() {
     this.afAuth.authState.subscribe(data => {
-      if(data.email && data.uid){
+      if(data && data.email && data.uid){
+      console.log(data);
       this.toast.create({
         message: 'Welcome to the skeleton app. This is a template for simple user authenticated applciation.',
         duration: 5000,
@@ -34,6 +35,18 @@ export class HomePage {
     }
     });
 
+  }
+
+  async logout() {
+    console.log('login selected...');
+    try {
+      const result = await this.afAuth.auth.signOut();
+      console.log("logout successful!");
+      console.log(result);
+    }
+    catch(e) {
+      console.log(e);
+    }
   }
 
 }
