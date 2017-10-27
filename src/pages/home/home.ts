@@ -20,7 +20,6 @@ export class HomePage {
   ionViewWillLoad() {
     this.afAuth.authState.subscribe(data => {
       if(data && data.email && data.uid){
-      console.log(data);
       this.toast.create({
         message: 'Welcome to the skeleton app. This is a template for simple user authenticated applciation.',
         duration: 5000,
