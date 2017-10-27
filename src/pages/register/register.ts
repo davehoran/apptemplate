@@ -29,7 +29,17 @@ export class RegisterPage {
     console.log('register page: register clicked.');
     try {
       const result = await this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
-      console.log(result);
+      console.log("successful user registration...");
+
+      // if successfully registered, send out verification email
+      var currentUser = this.afAuth.auth.currentUser;
+      currentUser.sendEmailVerification().then(function() {
+        console.log("successfully send verification email...");
+      }).catch(function(e) {
+        console.log("error sending verification email...");
+        console.log(e);
+      });
+      
     }
     catch(e){
       console.error(e);
